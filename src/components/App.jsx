@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { AppContent } from './AppComponent/AppComponent';
+import { AppContent } from './AppContent/AppContent';
 
 export class App extends Component {
   state = {
