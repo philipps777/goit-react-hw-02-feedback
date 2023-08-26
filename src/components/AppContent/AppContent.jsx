@@ -1,6 +1,7 @@
 import { FeedbackOptions } from 'components/Feedback/Feedback';
 import { Notification } from 'components/Notification/Notification';
 import { Statistics } from 'components/Statistics/Statistics';
+import { Wrapper } from './AppContent.styled';
 
 export const AppContent = ({
   state,
@@ -11,9 +12,8 @@ export const AppContent = ({
   const { good, neutral, bad } = state;
 
   return (
-    <div className="app-content">
+    <Wrapper className="app-content">
       <div className="content-section">
-        <h2>Please leave your feedback</h2>
         <FeedbackOptions
           onLeaveFeedback={handleFeedback}
           good={good}
@@ -38,6 +38,6 @@ export const AppContent = ({
           <Notification message="No feedback given" />
         </div>
       )}
-    </div>
+    </Wrapper>
   );
 };

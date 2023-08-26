@@ -1,3 +1,5 @@
+import { Button, Div } from './Feedback.styled';
+
 export const FeedbackOptions = (
   { onLeaveFeedback },
   { bad, good, neutral }
@@ -6,11 +8,13 @@ export const FeedbackOptions = (
     <>
       <div>
         <h1>Please leave feedback</h1>
-        <button onClick={() => onLeaveFeedback('good')}>Good: {good}</button>
-        <button onClick={() => onLeaveFeedback('neutral')}>
-          Neutral: {neutral}
-        </button>
-        <button onClick={() => onLeaveFeedback('bad')}>Bad: {bad}</button>
+        <Div>
+          <Button onClick={() => onLeaveFeedback('good')}>Good {good}</Button>
+          <Button onClick={() => onLeaveFeedback('neutral')}>
+            Neutral {neutral}
+          </Button>
+          <Button onClick={() => onLeaveFeedback('bad')}>Bad {bad}</Button>
+        </Div>
       </div>
     </>
   );
