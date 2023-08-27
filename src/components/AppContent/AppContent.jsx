@@ -1,42 +1,36 @@
-import { FeedbackOptions } from 'components/Feedback/Feedback';
+import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Notification } from 'components/Notification/Notification';
 import { Statistics } from 'components/Statistics/Statistics';
 import { Wrapper } from './AppContent.styled';
+import { Section } from 'components/Section/Section';
 
 export const AppContent = ({
-  state,
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
   handleFeedback,
-  countTotalFeedback,
-  countPositiveFeedbackPercentage,
 }) => {
-  const { good, neutral, bad } = state;
-
   return (
     <Wrapper className="app-content">
-      <div className="content-section">
-        <FeedbackOptions
-          onLeaveFeedback={handleFeedback}
-          good={good}
-          neutral={neutral}
-          bad={bad}
-        />
-      </div>
-      {countTotalFeedback() > 0 ? (
-        <div className="content-section">
-          <h2>Statistics</h2>
+      <Section title="Please leave your feedback">
+        <FeedbackOptions onLeaveFeedback={handleFeedback} />
+      </Section>
+      {total > 0 ? (
+        <Section title="Statistics">
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
-            positivePercentage={countPositiveFeedbackPercentage()}
+            total={total}
+            positivePercentage={positivePercentage}
           />
-        </div>
+        </Section>
       ) : (
-        <div className="content-section">
-          <h2>Statistics</h2>
-          <Notification message="No feedback given" />
-        </div>
+        <Section title="Statistics">
+          <Notification message="There is no feedback" />
+        </Section>
       )}
     </Wrapper>
   );
