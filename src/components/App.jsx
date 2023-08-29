@@ -39,11 +39,7 @@ export class App extends Component {
         <Wrapper className="app-content">
           <Section title="Please leave your feedback">
             <FeedbackOptions
-              options={{
-                good: this.state.good,
-                neutral: this.state.neutral,
-                bad: this.state.bad,
-              }}
+              options={Object.keys(this.state)}
               onLeaveFeedback={this.handleFeedback}
             />
           </Section>

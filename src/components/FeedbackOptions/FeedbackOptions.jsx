@@ -3,7 +3,7 @@ import { FeedbackButton } from 'components/FeedbackButton/FeedbackButton';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <Div>
-      {Object.keys(options).map(option => (
+      {options.map(option => (
         <FeedbackButton
           key={option}
           feedbackType={option}
