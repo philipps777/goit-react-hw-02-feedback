@@ -1,17 +1,17 @@
 import { Div } from './FeedbackOptions.styled';
 import { FeedbackButton } from 'components/FeedbackButton/FeedbackButton';
-export const FeedbackOptions = ({ onLeaveFeedback }) => {
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <Div>
-      <FeedbackButton feedbackType="good" onFeedbackClick={onLeaveFeedback}>
-        Good
-      </FeedbackButton>
-      <FeedbackButton feedbackType="neutral" onFeedbackClick={onLeaveFeedback}>
-        Neutral
-      </FeedbackButton>
-      <FeedbackButton feedbackType="bad" onFeedbackClick={onLeaveFeedback}>
-        Bad
-      </FeedbackButton>
+      {Object.keys(options).map(option => (
+        <FeedbackButton
+          key={option}
+          feedbackType={option}
+          onFeedbackClick={onLeaveFeedback}
+        >
+          {option.charAt(0).toUpperCase() + option.slice(1)}
+        </FeedbackButton>
+      ))}
     </Div>
   );
 };
